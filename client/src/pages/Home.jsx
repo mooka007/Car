@@ -1,10 +1,9 @@
 import React from "react";
-import {Carousel } from "flowbite-react";
-import bannerr1 from "../assets/bannerr1.jpg"
+// import bannerr1 from "../assets/bannerr1.jpg"
 
 const Home = () => {
     return(
-        <div className="bg-neutralSilver">23.46
+        <div className=" bg-gray-50 flex items-center">
             {/* <div className="px-4 lg:px-14  mx-auto  h-f">
                 <Carousel className="w-full mx-auto">
                     <div className="my-28 md:my-8 py-12 flex flex-col md:flex-row-reverse items-center justify-between gap-12">
@@ -20,15 +19,36 @@ const Home = () => {
                     </div>
                 </Carousel>
             </div> */}
-            <div class="w-full bg-cover bg-center h-[80rem] bg-[url(https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)]">
-                <div class="flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-50">
-                    <div class="text-center">
-                        <h1 class="text-white text-2xl font-semibold uppercase md:text-3xl">Build Your new <span class="underline text-blue-400">Saas</span></h1>
-                        <button class="mt-4 px-4 py-2 bg-blue-600 text-white text-sm uppercase font-medium rounded hover:bg-blue-500 focus:outline-none focus:bg-blue-500">Start project</button>
+            {/* section */}
+            <div class="w-full bg-cover bg-center mt-24 py-48  h-[40rem] bg-[url('./assets/bannerr1.jpg')] ">
+                <div class="container mx-auto text-left text-white">
+                    <div class="flex items-center ">
+                        <div class="w-1/2">
+                            <h1 className="text-5xl font-medium mb-6" >For Rent $70 Per Day</h1>
+                            <p className="text-xl mb-12">Reserved Now & Get 50% off</p>
+                            <a href="" class="bg-indigo-500 text-white py-4 px-12 rounded-full hover:bg-indigo-600">Demo</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    //     <div class="h-screen bg-gray-50 flex items-center">
+    //     <section class="bg-cover bg-center py-32 w-full" style="background-image: url('https://source.unsplash.com/random');">
+    //         <div class="container mx-auto text-left text-white">
+    //             <div class="flex items-center">
+    //                 <div class="w-1/2">
+    //                     <h1 class="text-5xl font-medium mb-6">Welcome to My Agency</h1>
+    //                     <p class="text-xl mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra
+    //                         euismod odio, gravida pellentesque urna varius vitae.</p>
+    //                     <a href="#" class="bg-indigo-500 text-white py-4 px-12 rounded-full hover:bg-indigo-600">Demo</a>
+    //                 </div>
+    //                 <div class="w-1/2 pl-16">
+    //                     <img src="https://source.unsplash.com/random?ux" class="h-64 w-full object-cover rounded-xl" alt="Layout Image">
+    //       </div>
+    //                 </div>
+    //             </div>
+    //     </section>
+    // </div>
     )
 }
 
