@@ -16,7 +16,7 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = ()  => {
-            if(window.scrollY > 100){
+            if(window.scrollY > -10){
                 setIsSticky(true);
             }else{
                 setIsSticky(false);
@@ -37,7 +37,7 @@ const Navbar = () => {
     ];
     return (
     <header className="w-full bg-white md:bg-transparent fixed top-0 left-0 right-0">
-        <nav className={`py-4 lg:px-14 px-4  ${isSticky ? "sticky top-0 left-0 right-0 border-b bg-red duration-300" : "" } `}>
+        <nav className={`py-4 lg:px-14 px-4  ${isSticky ? "sticky top-0 left-0 right-0 border-b bg-white " : "" } `}>
             <div className="flex items-center justify-between text-base gap-8">
                 <a href="" className="text-2xl font-semibold flex items-center space-x-3"> 
                     <img src={logo} alt="" className="w-30 inline-block items-center" />
