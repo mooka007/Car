@@ -1,5 +1,7 @@
 import React from "react";
-
+import car1 from "../assets/cars/car1.jpg"
+import car2 from "../assets/cars/car2.jpg"
+import car3 from "../assets/cars/car3.jpg"
 const AboutUs = () => {
     return (
         <section className="overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] bg-white dark:bg-dark">
@@ -8,29 +10,29 @@ const AboutUs = () => {
             <div className="w-full px-4 lg:w-6/12">
               <div className="flex items-center -mx-3 sm:-mx-4">
                 <div className="w-full px-3 sm:px-4 xl:w-1/2">
-                  <div className="py-3 sm:py-4">
+                  <div className="py-3 sm:py-4 transition duration-300 hover:scale-105">
                     <img
-                      src="https://i.ibb.co/gFb3ns6/image-1.jpg"
+                      src={car1}
                       alt=""
                       className="w-full rounded-2xl"
                     />
                   </div>
-                  <div className="py-3 sm:py-4">
+                  <div className="py-3 sm:py-4 transition duration-300 hover:scale-105">
                     <img
-                      src="https://i.ibb.co/rfHFq15/image-2.jpg"
+                      src={car2}
                       alt=""
                       className="w-full rounded-2xl"
                     />
                   </div>
                 </div>
-                <div className="w-full px-3 sm:px-4 xl:w-1/2">
+                <div className="w-full px-3 sm:px-4 xl:w-1/2 transition duration-300 hover:scale-105">
                   <div className="relative z-10 my-4">
                     <img
-                      src="https://i.ibb.co/9y7nYCD/image-3.jpg"
+                      src={car3}
                       alt=""
                       className="w-full rounded-2xl"
                     />
-                    <span className="absolute -right-7 -bottom-7 z-[-1]">
+                    <span className="absolute -right-7 -bottom-7 z-[-1] ">
                       <svg
                         width={134}
                         height={106}
@@ -614,15 +616,13 @@ const AboutUs = () => {
                   Make your customers happy by giving services.
                 </h2>
                 <p className="mb-5 text-base text-body-color dark:text-dark-6">
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that it has a more-or-less.
+                  With our extensive fleet and flexible options, renting a car has never been easier.
+                  Find the perfect vehicle for your needs, whether it's a weekend getaway or a temporary solution.
                 </p>
                 <p className="mb-8 text-base text-body-color dark:text-dark-6">
-                  A domain name is one of the first steps to establishing your
-                  brand. Secure a consistent brand image with a domain name that
-                  matches your business.
-                </p>
+                  Enjoy hassle-free online booking, quick check-in/out, and transparent pricing. Rent for hours or weeks,
+                  as per your requirements. Experience convenient and flexible car rentals by choosing us.
+                  </p>
                 <a
                   href="javascript:void(0)"
                   className="inline-flex items-center justify-center py-3 text-base font-medium text-center text-white border border-transparent rounded-md px-7 bg-primary hover:bg-opacity-90"

@@ -1,11 +1,11 @@
 import React from "react";
-import car1 from "../assets/cars/1.jpg"
-import car2 from "../assets/cars/2.png"
-import car3 from "../assets/cars/3.jpg"
-import car4 from "../assets/cars/4.jpg"
-import car5 from "../assets/cars/5.jpg"
-import car6 from "../assets/cars/6.jpg"
-import car7 from "../assets/cars/7.jpg"
+import car1 from "../assets/cars/1.ico"
+import car2 from "../assets/cars/2.ico"
+import car3 from "../assets/cars/3.ico"
+import car4 from "../assets/cars/4.ico"
+import car5 from "../assets/cars/5.ico"
+import car6 from "../assets/cars/6.ico"
+import car7 from "../assets/cars/7.ico"
 
 const Services = () => {
     return (
@@ -15,13 +15,13 @@ const Services = () => {
                 <p className="text-red-600">we have been working with some fortune 600+ client</p>
                 {/* company logo */}
                 <div>
-                    <img src={car1} />
-                    <img src={car2} />
-                    <img src={car3} />
-                    <img src={car4} />
-                    <img src={car5} />
-                    <img src={car6} />
-                    <img src={car7} />
+                    <img alt="" src={car1} />
+                    <img alt="" src={car2} />
+                    <img alt="" src={car3} />
+                    <img alt="" src={car4} />
+                    <img alt="" src={car5} />
+                    <img alt="" src={car6} />
+                    <img alt="" src={car7} />
 
                 </div>
             </div>            
