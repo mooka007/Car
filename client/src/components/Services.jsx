@@ -1,27 +1,20 @@
 import React from "react";
-import car1 from "../assets/cars/1.ico"
-import car2 from "../assets/cars/2.ico"
-import car3 from "../assets/cars/3.ico"
-import car4 from "../assets/cars/4.ico"
-import car5 from "../assets/cars/5.ico"
-import car6 from "../assets/cars/6.ico"
-import car7 from "../assets/cars/7.ico"
 
 const Services = () => {
     return (
-        <div className="md:px-14 px-4 py-16 max-w-screen-2xl mx-auto">
+        <div className="px-4 lg:px-14 py-16  bg-neutralSilver mx-auto">
             <div className="text-center my-8">
-                <h2 className="text-4xl text-red-500 font-semibold mb-2">Our Client</h2>
-                <p className="text-red-600">we have been working with some fortune 600+ client</p>
+                <h2 className="text-4xl text-neutralDGrey font-semibold mb-2">Trusted Car Providers</h2>
+                <p className="text-neutralDGrey mt-5">These trusted brands offer diverse vehicle options, competitive rates, and exceptional service to ensure a seamless rental experience for our customers</p>
                 {/* company logo */}
-                <div>
-                    <img alt="" src={car1} />
-                    <img alt="" src={car2} />
-                    <img alt="" src={car3} />
-                    <img alt="" src={car4} />
-                    <img alt="" src={car5} />
-                    <img alt="" src={car6} />
-                    <img alt="" src={car7} />
+                <div className="my-8 flex flex-wrap justify-between items-center ">
+                 <img className=" mx-20 " width="56" height="48" src="https://img.icons8.com/color/48/mercedes-benz.png" alt="mercedes-benz"/>
+                 <img className=" mx-20 " width="100" height="100" src="https://img.icons8.com/plasticine/100/audi.png" alt="audi"/>
+                 <img className=" mx-20 " width="56" height="48" src="https://img.icons8.com/color/48/hyundai.png" alt="hyundai"/>
+                 <img className=" mx-20 " width="56" height="48" src="https://img.icons8.com/color/48/kia.png" alt="kia"/>
+                 <img className=" mx-20 " width="50" height="50" src="https://img.icons8.com/ios/50/volkswagen.png" alt="volkswagen"/>
+                 <img className=" mx-20 " width="56" height="48" src="https://img.icons8.com/color/48/bmw--v1.png" alt="bmw--v1"/>
+                 <img className=" mx-20 " width="56" height="48" src="https://img.icons8.com/color/48/lexus.png" alt="lexus"/>
 
                 </div>
             </div>            
