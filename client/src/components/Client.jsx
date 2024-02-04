@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-function Client() {
+const Client = () => {
     const settings = {
         dots: true,
         infinite: true,
@@ -49,12 +49,12 @@ function Client() {
 
 
 return (
-    <div class="h-[32rem]  flex items-center justify-center gap-2">
-        <div class="bg-white max-w-xl rounded-2xl px-10 py-10 shadow-lg hover:shadow-2xl transition duration-500">
+    <div class="h-[32rem]  bg-neutralSilver flex items-center justify-center gap-2">
+        <div class="bg-white max-w-2xl rounded-2xl  px-10 py-10 shadow-lg hover:shadow-2xl transition duration-500">
             <Slider  {...settings}>
                 {
                     slides.map((d, id) => (
-                            <div class="mt-4">                       
+                            <div key={id} class="mt-4">                       
                                 <p class="mt-4 text-md text-gray-600">{d.para}</p>
                                 <div class="flex justify-between items-center">
                                     <div class="mt-4 flex items-center space-x-4 py-6">
