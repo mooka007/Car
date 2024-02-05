@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.png"
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 import { FaXmark, FaBars } from "react-icons/fa6"
 
 
@@ -29,11 +29,11 @@ const Navbar = () => {
     })
     // nav items array
     const navItems = [
-        {link: "Home", path: "home"},
-        {link: "Service", path : "service"},
-        {link: "Gallery", path : "gallery"},
-        {link: "Contact", path : "contact"},
-        {link: "About", path : "about"},       
+        {link: "Home", path: "/"},
+        {link: "Service", path : "#"},
+        {link: "Gallery", path : "#"},
+        {link: "Contact", path : "#"},
+        {link: "About", path : "/aboutus"},       
     ];
     return (
     <header className="w-full bg-white md:bg-transparent fixed top-0 left-0 right-0">

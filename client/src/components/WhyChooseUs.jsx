@@ -2,7 +2,8 @@ import React from "react";
 import car1 from "../assets/cars/car1.jpg"
 import car2 from "../assets/cars/car2.jpg"
 import car3 from "../assets/cars/car3.jpg"
-const AboutUs = () => {
+
+const WhyChooseUs = () => {
     return (
         <section className="overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] bg-white dark:bg-dark">
         <div className="container mx-auto">
@@ -637,4 +638,4 @@ const AboutUs = () => {
     )
 }
 
-export default AboutUs; 
+export default WhyChooseUs; 
