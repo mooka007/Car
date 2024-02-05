@@ -49,7 +49,7 @@ const Client = () => {
 
 
 return (
-    <div class="h-[32rem]  bg-neutralSilver flex items-center justify-center gap-2">
+    <div class="h-[32rem] mt-40 bg-neutralSilver flex items-center justify-center gap-2">
         <div class="bg-white max-w-2xl rounded-2xl  px-10 py-10 shadow-lg hover:shadow-2xl transition duration-500">
             <Slider  {...settings}>
                 {

@@ -4,7 +4,7 @@ const Services = () => {
     return (
         <div className="px-4 lg:px-14 py-16  bg-neutralSilver mx-auto">
             <div className="text-center my-8">
-                <h2 className="text-4xl text-neutralDGrey font-semibold mb-2">Trusted Car Providers</h2>
+                <h2 className="text-4xl text-neutralDGrey font-semibold mb-2">Cars that we have</h2>
                 <p className="text-neutralDGrey mt-5">These trusted brands offer diverse vehicle options, competitive rates, and exceptional service to ensure a seamless rental experience for our customers</p>
                 {/* company logo */}
                 <div className="my-8 flex flex-wrap justify-between items-center ">
