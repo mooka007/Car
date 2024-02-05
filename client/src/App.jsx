@@ -6,6 +6,7 @@ import Services from './components/Services.jsx'
 import AboutUs from './components/AboutUs.jsx'
 import Client from './components/Client.jsx';
 import Offers from './components/Offers.jsx';
+import  Footer from './components/Footer.jsx'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Services />
       <Offers />
       <Client />
+      <Footer />
     </>
   );
 }
