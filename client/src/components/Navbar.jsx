@@ -52,10 +52,10 @@ const Navbar = () => {
                 </ul>
                 {/* btn */}
                 <div className="space-x-12 hidden lg:flex items-center">
-                    <a href="/" className="hidden lg:flex items-center text-brandPrimary
+                    <a href="/login" className="hidden lg:flex items-center text-brandPrimary
                     hover:text-gray900">login</a>
-                    <button className="bg-brandPrimary text-white py-2 px-4 transition-all duration-300
-                    rounded hover:bg-neutralDGrey">Sign Up</button>
+                    <a href="/signup" className="bg-brandPrimary text-white py-2 px-4 transition-all duration-300
+                    rounded hover:bg-neutralDGrey">Sign Up</a>
                 </div>
                 {/* menu btn */}
                 <div className="md:hidden">
