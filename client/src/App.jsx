@@ -1,8 +1,9 @@
 
 import './App.css';
-import Navbar from "./components/Navbar.jsx"
 import AboutUs from './pages/AboutUs.jsx'
-import  Footer from './components/Footer.jsx'
+import Contactus from './pages/ContactUs.jsx'
+import Navbar from "./components/Navbar.jsx"
+import Footer from './components/Footer.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -32,6 +33,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />}></Route>
         <Route path="/aboutus" element={<AboutUs />}></Route>      
+        <Route path="/contactus" element={<Contactus />}></Route>
       </Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/signup" element={<Signup />}></Route>
