@@ -11,7 +11,7 @@ const Signup = () => {
                         {/* logo - left side */}
                         <div class="flex items-center justify-start space-x-3">
                             {/* <span class="bg-black rounded-full w-8 h-8"></span> */}
-                            <a href="" className="text-2xl font-semibold flex items-center space-x-3"> 
+                            <a href="/" className="text-2xl font-semibold flex items-center space-x-3"> 
                                 <img src={logo} alt="" className="w-30 inline-block items-center" />
                                 <span className="text-[#263238]">RentX</span>
                             </a>
