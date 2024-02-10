@@ -4,6 +4,8 @@ import car2 from "../assets/cars/car2.jpg"
 import car3 from "../assets/cars/car3.jpg"
 
 const WhyChooseUs = () => {
+
+  
     return (
         <div className="overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] bg-white dark:bg-dark">
         <div className="container mx-auto">
