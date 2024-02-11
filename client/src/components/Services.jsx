@@ -1,15 +1,19 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Tooltip } from 'flowbite-react';
 
 
 const Services = () => {
+    useEffect(() => {
+        const copy = document.querySelector('.logos-slide').cloneNode(true);
+        document.querySelector('.logos').appendChild(copy);
+      }, []);
     return (
         <div className="px-4 lg:px-14 py-16  bg-neutralSilver mx-auto logos">
             <h2 className="text-center text-4xl text-neutralDGrey font-semibold mb-2">Cars that we have</h2>
             <p className="text-center text-neutralDGrey mt-5">These trusted brands offer diverse vehicle options, competitive rates, and exceptional service to ensure a seamless rental experience for our customers</p>
             <div className="text-center my-8 logos-slide">
                 {/* company logo */}
-                <div className="my-8 flex flex-wrap justify-between items-center  ">
+                <div className="my-8 flex  justify-between items-center  ">
                     <Tooltip content="Mercedes" placement="top">
                         <img className=" mx-20 " width="56" height="48" src="https://img.icons8.com/color/48/mercedes-benz.png" alt="mercedes-benz"/>
                     </Tooltip>
