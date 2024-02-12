@@ -33,7 +33,7 @@ const Navbar = () => {
         {link: "Service", path : "#"},
         {link: "Gallery", path : "/gallery"},
         // {link: "Contactus", path : "/contactus"},
-        {link: "About Us", path : "/aboutus"},       
+        // {link: "About Us", path : "/aboutus"},       
     ];
     return (
     <header className="w-full bg-white md:bg-transparent fixed top-0 left-0 right-0">

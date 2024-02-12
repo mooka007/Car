@@ -7,7 +7,7 @@ const WhyChooseUs = () => {
 
   
     return (
-        <div className="overflow-hidden pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] bg-white dark:bg-dark">
+        <div className="overflow-hidden pt-20 mt-40 pb-12 lg:pt-[120px] lg:pb-[90px]  dark:bg-dark bg-neutralSilver">
         <div className="container mx-auto">
           <div className="flex flex-wrap items-center justify-between -mx-4">
             <div className="w-full px-4 lg:w-6/12">

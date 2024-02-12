@@ -8,7 +8,7 @@ const Offers = () => {
     <>
     <div className='text-center h-[48rem] mt-14 '>
         <p className='text-6xl font-semibold'>Explore Our Cars</p>
-        <div className="mt-20 w-40 mx-auto">
+        <div className="mt-10 w-40 mx-auto">
           <Dropdown  label="Model Cars">
             <Dropdown.Item>Mercedes</Dropdown.Item>
             <Dropdown.Item>Toyota</Dropdown.Item>
@@ -18,7 +18,7 @@ const Offers = () => {
           </Dropdown>
         </div>
 
-        <div className="mx-24 mt-16 ">
+        <div className="lg:mx-40 mt-10">
           <Cards />
         </div>
     </div>

@@ -10,9 +10,9 @@ const Home = () => {
         <div className="w-full ">
             <div className="max-w-container">
                 <HeroSection />
+                <Offers />
                 <WhyChooseUs />
                 <Services />
-                <Offers />
                 <Client />
             </div>
         </div>
