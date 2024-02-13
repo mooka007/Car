@@ -15,3 +15,5 @@ The Rent-A-Car Website is a comprehensive online platform designed to provide a 
   We prioritize the security of your transactions. Our website offers secure payment gateways, allowing you to make online payments confidently and conveniently.
   
 With the Rent-A-Car Website, we aim to provide a user-friendly platform that empowers you to explore new destinations with ease. Experience the convenience, flexibility, and reliability of renting a car online. Start your journey today and enjoy a seamless travel experience with Rent-A-Car.
+
+
