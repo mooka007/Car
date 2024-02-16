@@ -65,3 +65,12 @@ export const emailVerification = async (req, res) => {
         res.redirect('http://localhost:3000/login')
     }
 }
+
+
+export const signout = (req, res) => {
+
+    res.clearCookie('token');
+
+    res.send('User signed out')
+
+}
