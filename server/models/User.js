@@ -14,11 +14,16 @@ const UserSchema = new mongoose.Schema(
             unique: true,
             max: 50,
         },
+        phone :{
+            type: Number,
+            required : true,
+        },
         password : {
             type: String,
             require: true,
             min: 8,
         },
+        verification: Boolean, // user is verified or not
     },
     {timestamps: true}
 );
