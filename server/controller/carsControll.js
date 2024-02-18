@@ -27,13 +27,13 @@ export const createPost = async (req, res) => {
     const { body } = req
     // const images =  req.files[0].filename;
     let emptyFields = []
-    if (!body.title) {
+    if (!body.name) {
         emptyFields.push('name')
     }
     if (!body.description) {
         emptyFields.push('description')
     }
-    if (!body.phone) {
+    if (!body.model) {
         emptyFields.push('model')
     }
     if (!req.files[0].filename) {
@@ -58,6 +58,7 @@ export const createPost = async (req, res) => {
         const car = await Car.create({
             ...body,
             image: img,
+            availability: false
         })
         res.status(200).json(car)
         // console.log(car)
