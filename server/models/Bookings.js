@@ -11,6 +11,14 @@ const BookingSchema = new mongoose.Schema(
             type: ObjectId,
             ref: "Car",
         },
+        startDate: {
+            type: Date,
+            required: true
+        },
+        endDate: {
+            type: Date,
+            required: true
+        },
     },
     {timestamps: true}
 )
