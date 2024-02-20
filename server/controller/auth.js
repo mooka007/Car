@@ -3,6 +3,11 @@ import jwt from "jsonwebtoken";
 import User from "../models/User.js"
 import mailer from "../middleware/mailer.js"
 
+
+const createToken = (_id) => {
+    return jwt.sign({ _id }, process.env.JWT_SECRET, {expiresIn: '3d'} );
+        
+}
 // Register User 
 export const register = async (req, res) => {
     try{
@@ -35,17 +40,17 @@ export const register = async (req, res) => {
 
 // login
 export const login = async(req, res) => {
+    const { email, password } = req.body;
     try{
-        const { email, password } = req.body;
         const user = await User.findOne({ email : email }); 
         if(!user) return res.status(400).json({ msg: "User Does not exist." })
 
         const validPass = await bcrypt.compare(password, user.password)
         if (!validPass ) return res.status(400).json({ msg: 'Invalid Password' })
         
-        let token = jwt.sign({ id: user._id }, process.env.JWT_SECRET );
+        const token = createToken(user._id)
         delete user.password;
-        res.status(200).json({ token, user})
+        res.status(200).json({msg: "Welcome to Your Home ", token, user})
 
     }catch(err){
         res.status(500).json({error: err.message})
