@@ -19,7 +19,10 @@ const CarsSchema = new mongoose.Schema(
             type: Sequelize.ARRAY(Sequelize.STRING),
             defaultValue: ["no picture for this product"],
         },
-        availability : Boolean,
+        availability: {
+            type: Boolean,
+            default: true,
+        },
     },
 );
 

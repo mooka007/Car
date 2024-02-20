@@ -12,6 +12,15 @@ export const createBooking = async (req, res) => {
         const car = await Car.findOne({ name: body.selectedCar })
         if (!car) throw Error('Please Select A car')
 
+        // Check if the car is already booked
+        if (!car.availability) {
+            throw new Error('The selected car is not available');
+        }
+
+        // Update the availability status of the car
+        car.availability = false;
+        await car.save();
+        
         const booking = new Booking({
             ...body,
             user_id,
