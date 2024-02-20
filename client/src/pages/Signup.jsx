@@ -1,12 +1,14 @@
 import React, { useState } from "react"
 
 import logo from "../assets/logo.png"
+import { useRegister } from '../hooks/useAuthentication.js'
 
 const Signup = () => {
+    const { register, error, isLoading } = useRegister()
     const [fullName, setfullName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [phone, setPhone] = useState(false);
+    const [phone, setPhone] = useState("");
     const [checked, setChecked] = useState(false);
 
 
@@ -25,7 +27,7 @@ const Signup = () => {
         setPassword(e.target.value);
     };
     
-const handleSignUp = async (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
     if (checked) {
       // if (!fullName) {
@@ -53,7 +55,8 @@ const handleSignUp = async (e) => {
         password &&
         password.length >= 6
     ) {
-        // await register(fullName, email, phone, password)
+        await register(fullName, email, phone, password)
+        
     }
     }
 };
@@ -77,7 +80,7 @@ const handleSignUp = async (e) => {
                             experiences</h1>
                             <p class="text-lg">already have an account</p>
                             <button class="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black bg-black text-white">
-                                    <a href="/login" className="hover:text-gray900">Login </a>
+                                    {/* <a href="/login" className="hover:text-gray900">Login </a> */}
                             </button>
                         </div>
                         <p class="font-medium">2024 © All rights reserved.  Made with ❤︎ </p>
@@ -88,7 +91,7 @@ const handleSignUp = async (e) => {
                         {/* responsive  logo */}
                         <div class="flex lg:hidden justify-between items-center w-full py-4">
                             <div class="flex items-center justify-start space-x-3">
-                                <a href="" className="text-2xl font-semibold flex items-center space-x-3"> 
+                                <a href="#" className="text-2xl font-semibold flex items-center space-x-3"> 
                                     <img src={logo} alt="" className="mx-6 w-30 inline-block items-center" />
                                     <span className="text-[#263238]">RentX</span>
                                 </a>
@@ -102,15 +105,19 @@ const handleSignUp = async (e) => {
                                 <p class="text-md md:text-xl">Join us and unlock exclusive benefits!</p>
                             </div>
                             {/* form */}
-                            <form class="flex flex-col justify-center lg:ml-24 max-w-md space-y-5">
-                                <input type="text" placeholder="FullName"
+                            <form onSubmit={handleSubmit} class="flex flex-col justify-center lg:ml-24 max-w-md space-y-5">
+                                <input onChange={handleName} value={fullName} type="text" placeholder="FullName"
                                     class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" />
-                                <input type="text" placeholder="Email"
+
+                                <input onChange={handleEmail} value={email} type="text" placeholder="Email"
                                 class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" />
-                                <input type="text" placeholder="phone Number"
+
+                                <input onChange={handlePhone}  value={phone} type="text" placeholder="phone Number"
                                 class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" />
-                                <input type="text" placeholder="Password"
+
+                                <input onChange={handlePassword} value={password} type="text" placeholder="Password"
                                 class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" />
+
                                 <input type="text" placeholder="Confirm Password"
                                 class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" />
                                 
@@ -129,7 +136,7 @@ const handleSignUp = async (e) => {
                                 </div>
                                 
                                 {/* ---------------------------------------------- */}
-                                <div class="flex justify-center items-center">
+                                <div className="flex justify-center items-center">
                                     <span class="w-full border border-black"></span>
                                     <span class="px-4">Or</span>
                                     <span class="w-full border border-black"></span>
@@ -137,8 +144,8 @@ const handleSignUp = async (e) => {
                                 {/* ---------------------------------------------- */}
 
                                 
-                                <button class="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black bg-black text-white">
-                                    <a href="" className="hover:text-gray900">Confirm</a>
+                                <button  className="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black bg-black text-white">
+                                    Confirm
                                 </button>
 
                                 {/* sign up with google  */}
@@ -153,7 +160,7 @@ const handleSignUp = async (e) => {
                                     </span>
                                     <span>Sign Up with Google</span>
                                 </button> */}
-                            </form>
+                            </form >
                         </div>
 
                         {/* footer */}

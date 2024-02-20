@@ -1,8 +1,29 @@
-import React from "react"
+import React, {useState} from "react"
 import { FloatingLabel } from 'flowbite-react';
 import logo from "../assets/logo.png"
+import { useLogin } from '../hooks/useAuthentication.js'
 
 const Login = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const { login, isLoading, error } = useLogin();
+
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
+        
+    };
+
+    const handlePassword = (e) => {
+        setPassword(e.target.value);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault(); 
+        // console.log(email, password)
+
+        await login(email, password)
+        console.log('done .l.')
+    }
     return (
         <body class="bg-white">
             <div class="flex min-h-screen">
@@ -48,23 +69,25 @@ const Login = () => {
                                 <h2 class="text-3xl md:text-4xl font-bold">Login</h2>
                                 <p class="text-md md:text-xl">log in to place the order!</p>
                             </div>
-                            <div class="flex flex-col max-w-md space-y-5 lg:ml-24">
                                 {/* form */}
-                                <input type="text" placeholder="Email"
+                            <form onSubmit={handleSubmit} class="flex flex-col max-w-md space-y-5 lg:ml-24">
+
+                                <input onChange={handleEmail} value={email}  type="text" placeholder="Email"
                                     class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" />
-                                <input type="text" placeholder="Password"
+                                <input onChange={handlePassword} value={password} type="text" placeholder="Password"
                                 class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" />
                                 <button class="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black bg-black text-white">
-                                    <a href="/" >Connect </a>
+                                    Connect 
                                 </button>
+
                                 {/* or */}
-                                <div class="flex justify-center items-center">
+                                {/* <div class="flex justify-center items-center">
                                     <span class="w-full border border-black"></span>
                                     <span class="px-4">Or</span>
                                     <span class="w-full border border-black"></span>
-                                </div>
+                                </div> */}
                                 {/* sign up with google */}
-                                <button class="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black relative">
+                                {/* <button class="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black relative">
                                     <span class="absolute left-4">
                                     <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path fill="#EA4335 " d="M5.26620003,9.76452941 C6.19878754,6.93863203 8.85444915,4.90909091 12,4.90909091 C13.6909091,4.90909091 15.2181818,5.50909091 16.4181818,6.49090909 L19.9090909,3 C17.7818182,1.14545455 15.0545455,0 12,0 C7.27006974,0 3.1977497,2.69829785 1.23999023,6.65002441 L5.26620003,9.76452941 Z"/>
@@ -74,8 +97,8 @@ const Login = () => {
                                     </svg>
                                     </span>
                                     <span>Sign in with Google</span>
-                                </button>
-                            </div>
+                                </button> */}
+                            </form>
                         </div>
 
                         {/* footer */}
