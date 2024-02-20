@@ -1,7 +1,62 @@
-import React from "react"
-import { FloatingLabel } from 'flowbite-react';
+import React, { useState } from "react"
+
 import logo from "../assets/logo.png"
+
 const Signup = () => {
+    const [fullName, setfullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [phone, setPhone] = useState(false);
+    const [checked, setChecked] = useState(false);
+
+
+     // ============= Event Handler Start here =============
+    const handleName = (e) => {
+        setfullName(e.target.value);
+    };
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
+        
+    };
+    const handlePhone = (e) => {
+        setPhone(e.target.value);
+    }
+    const handlePassword = (e) => {
+        setPassword(e.target.value);
+    };
+    
+const handleSignUp = async (e) => {
+    e.preventDefault();
+    if (checked) {
+      // if (!fullName) {
+      //   setErrfullName("Enter your name");
+      // }
+      // if (!email) {
+      //   setErrEmail("Enter your email");
+      // } else {
+      //   if (!EmailValidation(email)) {
+      //     setErrEmail("Enter a Valid email");
+      //   }
+      // }
+      // if (!password) {
+      //   setErrPassword("Create a password");
+      // } else {
+      //   if (password.length < 6) {
+      //     setErrPassword("Passwords must be at least 6 characters");
+      //   }
+      // }
+      // ============== Getting the value ==============
+    if (
+        fullName &&
+        email &&
+        phone &&
+        password &&
+        password.length >= 6
+    ) {
+        // await register(fullName, email, phone, password)
+    }
+    }
+};
     return (
         <body class="bg-white">
             <div class="flex min-h-screen">
@@ -47,24 +102,47 @@ const Signup = () => {
                                 <p class="text-md md:text-xl">Join us and unlock exclusive benefits!</p>
                             </div>
                             {/* form */}
-                            <div class="flex flex-col justify-center lg:ml-24 max-w-md space-y-5">
+                            <form class="flex flex-col justify-center lg:ml-24 max-w-md space-y-5">
                                 <input type="text" placeholder="FullName"
                                     class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" />
                                 <input type="text" placeholder="Email"
+                                class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" />
+                                <input type="text" placeholder="phone Number"
                                 class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" />
                                 <input type="text" placeholder="Password"
                                 class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" />
                                 <input type="text" placeholder="Confirm Password"
                                 class="flex px-3 py-2 md:px-4 md:py-3 border-2 border-black rounded-lg font-medium placeholder:font-normal" />
-                                <button class="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black bg-black text-white">
-                                    <a href="/login" className="hover:text-gray900">Confirm</a>
-                                </button>
+                                
+                                {/* Checkbox */}
+                                <div className="flex items-start mdl:items-center gap-2">
+                                    <input
+                                        onChange={() => setChecked(!checked)}
+                                        className="w-4 h-4 mt-1 mdl:mt-0 cursor-pointer"
+                                        type="checkbox"
+                                    />
+                                    <p className="text-sm text-primeColor">
+                                        I agree to the RentX{" "}
+                                        <span className="text-blue-500">Terms of Service </span>and{" "}
+                                        <span className="text-blue-500">Privacy Policy</span>.
+                                    </p>
+                                </div>
+                                
+                                {/* ---------------------------------------------- */}
                                 <div class="flex justify-center items-center">
                                     <span class="w-full border border-black"></span>
                                     <span class="px-4">Or</span>
                                     <span class="w-full border border-black"></span>
                                 </div>
-                                <button class="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black relative">
+                                {/* ---------------------------------------------- */}
+
+                                
+                                <button class="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black bg-black text-white">
+                                    <a href="" className="hover:text-gray900">Confirm</a>
+                                </button>
+
+                                {/* sign up with google  */}
+                                {/* <button class="flex items-center justify-center flex-none px-3 py-2 md:px-4 md:py-3 border-2 rounded-lg font-medium border-black relative">
                                     <span class="absolute left-4">
                                     <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path fill="#EA4335 " d="M5.26620003,9.76452941 C6.19878754,6.93863203 8.85444915,4.90909091 12,4.90909091 C13.6909091,4.90909091 15.2181818,5.50909091 16.4181818,6.49090909 L19.9090909,3 C17.7818182,1.14545455 15.0545455,0 12,0 C7.27006974,0 3.1977497,2.69829785 1.23999023,6.65002441 L5.26620003,9.76452941 Z"/>
@@ -74,8 +152,8 @@ const Signup = () => {
                                     </svg>
                                     </span>
                                     <span>Sign Up with Google</span>
-                                </button>
-                            </div>
+                                </button> */}
+                            </form>
                         </div>
 
                         {/* footer */}
