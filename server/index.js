@@ -12,7 +12,7 @@ import morgan from "morgan";
 
 import auth from "./routes/auth.js"
 import carss from "./routes/carRoute.js"
-
+import books from "./routes/bookingRoute.js"
 
 // Configuration  { Middleware }
 dotenv.config()
@@ -33,7 +33,7 @@ app.use(cors())
 // Routes 
 app.use("/auth", auth);
 app.use("/cars", carss);
-
+app.use("/books", books);
 
 
 //  Mongosse Setup 

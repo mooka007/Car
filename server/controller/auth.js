@@ -43,7 +43,7 @@ export const login = async(req, res) => {
         const validPass = await bcrypt.compare(password, user.password)
         if (!validPass ) return res.status(400).json({ msg: 'Invalid Password' })
         
-        let token = jwt.sign({ id: user.id }, process.env.JWT_SECRET , { expiresIn: '1d'});
+        let token = jwt.sign({ id: user._id }, process.env.JWT_SECRET );
         delete user.password;
         res.status(200).json({ token, user})
 

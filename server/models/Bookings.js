@@ -3,13 +3,15 @@ const { ObjectId } = mongoose.Schema;
 
 const BookingSchema = new mongoose.Schema(
     {   
-        user: {
+        user_id : {
             type: ObjectId,
             ref: "User",
+            required: true
         },
         car: {
             type: ObjectId,
             ref: "Car",
+            required: true
         },
         startDate: {
             type: Date,

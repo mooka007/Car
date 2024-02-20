@@ -1,12 +1,12 @@
 
 import express from "express";
-import { bookingController } from "../controller/bookingControll.js"
+import { createBooking } from "../controller/bookingControll.js"
 import requireAuth from "../middleware/require.js"
 
 const router = express.Router();
-
+router.use(requireAuth)
 // Create a new booking
-router.post('/bookings',requireAuth, bookingController.createBooking);
+router.post('/booking', createBooking);
 
 // Get all bookings
 // router.get('/bookings', bookingController.getAllBookings);
@@ -20,4 +20,5 @@ router.post('/bookings',requireAuth, bookingController.createBooking);
 // Delete a booking
 // router.delete('/bookings/:id', bookingController.deleteBooking);
 
-module.exports = router;
+
+export default router;
