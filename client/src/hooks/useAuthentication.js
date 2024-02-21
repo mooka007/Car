@@ -68,7 +68,8 @@ export const useRegister = () => {
             dispatch({ type: 'LOGIN', payload: json})
 
             setIsLoading(false)
+            window.location.assign('/validate_email');
         }
     }
     return {  register, isLoading, error }
- }
+}

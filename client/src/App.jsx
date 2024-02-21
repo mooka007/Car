@@ -16,6 +16,7 @@ import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
 import Gallery from './pages/Gallery.jsx';
+import { ValidateEmail } from './pages/ValidateEmail.jsx';
 
 const Layout  = () => {
   return (
@@ -36,7 +37,7 @@ const router = createBrowserRouter(
         {/* <Route path="/aboutus" element={<AboutUs />}></Route>       */}
         <Route path="/contactus" element={<Contactus />}></Route>
         <Route path="/gallery" element={<Gallery />}></Route>
-
+        <Route path="/validate_email" element={<ValidateEmail />}></Route>
       </Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/register" element={<Signup />}></Route>

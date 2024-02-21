@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.png"
 import { Link } from "react-router-dom";
 import { FaXmark, FaBars } from "react-icons/fa6"
+import { useAuthContext } from '../hooks/useAuthContext'
+
 
 
 
 const Navbar = () => {
+    const { user } = useAuthContext()
     const [ isOpen, setIsOpen ] = useState(false)
     const [ isSticky, setIsSticky ] = useState(false)
 
@@ -35,6 +38,7 @@ const Navbar = () => {
         // {link: "Contactus", path : "/contactus"},
         // {link: "About Us", path : "/aboutus"},       
     ];
+    console.log(user)
     return (
     <header className="w-full bg-white md:bg-transparent fixed top-0 left-0 right-0">
         <nav className={`py-4 lg:px-14 px-4  ${isSticky ? "sticky top-0 left-0 right-0 border-b bg-white " : "" } `}>
@@ -51,12 +55,26 @@ const Navbar = () => {
                     }
                 </ul>
                 {/* btn */}
-                <div className="space-x-12 hidden lg:flex items-center">
-                    <a href="/login" className="hidden lg:flex items-center text-brandPrimary
-                    hover:text-gray900">login</a>
-                    <a href="/signup" className="bg-brandPrimary text-white py-2 px-4 transition-all duration-300
-                    rounded hover:bg-neutralDGrey">Sign Up</a>
-                </div>
+                { 
+                    user && (
+                        <div className="space-x-12 hidden lg:flex items-center">
+                            <a href="/login" className="hidden lg:flex items-center text-brandPrimary
+                            hover:text-gray900">{user.fullName}</a>
+                            <a href="/signup" className="bg-brandPrimary text-white py-2 px-4 transition-all duration-300
+                            rounded hover:bg-neutralDGrey">Log Out</a>
+                        </div>
+                    )
+                }
+                { 
+                    !user && (
+                        <div className="space-x-12 hidden lg:flex items-center">
+                            <a href="/login" className="hidden lg:flex items-center text-brandPrimary
+                            hover:text-gray900">login</a>
+                            <a href="/signup" className="bg-brandPrimary text-white py-2 px-4 transition-all duration-300
+                            rounded hover:bg-neutralDGrey">Sign Up</a>
+                        </div>
+                    )
+                }
                 {/* menu btn */}
                 <div className="md:hidden">
                     <button onClick={toggleMenu} className="textneutralDgrey focus:outline-none focus:text-gray-500">
