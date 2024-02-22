@@ -38,25 +38,33 @@ export const register = async (req, res) => {
     }
 }
 
+
 // login
-export const login = async(req, res) => {
-    const { email, password } = req.body;
-    try{
-        const user = await User.findOne({ email : email }); 
-        if(!user) return res.status(400).json({ msg: "User Does not exist." })
-
-        const validPass = await bcrypt.compare(password, user.password)
-        if (!validPass ) return res.status(400).json({ msg: 'Invalid Password' })
-        
+export const login = async (req, res) => {
+    const { email, password} = req.body
+    try {
+        if(!email || !password){
+            throw Error('All Fields must be filled')
+        }
+        // check the user 
+        const user = await User.findOne({ email })
+        if(!user){
+            throw Error('Incorrect Email');
+        }
+        // check password 
+        const match = await  bcrypt.compare(password, user.password)
+        if(!match){
+            throw Error('Incorrect Password')
+        }
+        // create token 
         const token = createToken(user._id)
-        delete user.password;
-        res.status(200).json({msg: "Welcome to Your Home ", token, user})
-
-    }catch(err){
-        res.status(500).json({error: err.message})
+        const fullName = user.fullName
+        console.log(fullName)
+        res.status(200).json({msg: "Welcome To Your Home",fullName, token })
+    } catch (error) {
+        res.status(400).json({ error: error.message})
     }
 }
-
 
 export const emailVerification = async (req, res) => {
     const checkingEmail = await jwt.verify(req.params.token, process.env.JWT_SECRET)

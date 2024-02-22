@@ -3,14 +3,21 @@ import logo from "../assets/logo.png"
 import { Link } from "react-router-dom";
 import { FaXmark, FaBars } from "react-icons/fa6"
 import { useAuthContext } from '../hooks/useAuthContext'
-
+import { useLogout } from '../hooks/useAuthentication'
+import prof from "../assets/prof.png"
 
 
 
 const Navbar = () => {
+    const {logout } = useLogout()
     const { user } = useAuthContext()
     const [ isOpen, setIsOpen ] = useState(false)
     const [ isSticky, setIsSticky ] = useState(false)
+    const [ openProfile, setOpenProfile ] = useState(false)
+
+    const handleClick = () => {
+        logout()
+    }
 
     // set toggle menu
     const toggleMenu = () => {
@@ -38,7 +45,14 @@ const Navbar = () => {
         // {link: "Contactus", path : "/contactus"},
         // {link: "About Us", path : "/aboutus"},       
     ];
-    console.log(user)
+    const navItemsNoUser = [
+        {link: "Home", path: "/"},
+        {link: "Service", path : "/service"},
+        {link: "About Us", path : "#"},
+        // {link: "Contactus", path : "/contactus"},
+        // {link: "About Us", path : "/aboutus"},       
+    ];
+    // console.log(user)
     return (
     <header className="w-full bg-white md:bg-transparent fixed top-0 left-0 right-0">
         <nav className={`py-4 lg:px-14 px-4  ${isSticky ? "sticky top-0 left-0 right-0 border-b bg-white " : "" } `}>
@@ -48,21 +62,33 @@ const Navbar = () => {
                     <span className="text-[#263238]">RentX</span>
                 </a>
                 {/* nav items */}
-                <ul className="md:flex space-x-12 hidden">
+                {
+                    user ? (
+                    <ul className="md:flex space-x-12 hidden">
                     {
-                        navItems.map(({link, path}) => <Link to={path} spy={true} smooth={true} offset={-100} 
+                        navItems.map(({link, path}) => <Link to={path}  offset={-100} 
                         className="block text-base text-gray900 hover:text-brandPrimary first:font-medium" key={path} >{link}</Link> )
                     }
-                </ul>
+                    </ul>
+                    ): (
+                        <ul className="md:flex space-x-12 hidden">
+                        {
+                            navItemsNoUser.map(({link, path}) => <Link to={path}  offset={-100} 
+                            className="block text-base text-gray900 hover:text-brandPrimary first:font-medium" key={path} >{link}</Link> )
+                        }
+                        </ul> 
+                    )
+                }
                 {/* btn */}
                 { 
                     user && (
                         <div className="space-x-12 hidden lg:flex items-center">
-                            <a href="/login" className="hidden lg:flex items-center text-brandPrimary
-                            hover:text-gray900">{user.fullName}</a>
-                            <a href="/signup" className="bg-brandPrimary text-white py-2 px-4 transition-all duration-300
-                            rounded hover:bg-neutralDGrey">Log Out</a>
+                            <span onClick={() => setOpenProfile((prev) => !prev)}>
+                            <img src={prof} alt="" className="w-10 inline-block items-center" />
+
+                            </span>
                         </div>
+                        
                     )
                 }
                 { 
@@ -70,7 +96,7 @@ const Navbar = () => {
                         <div className="space-x-12 hidden lg:flex items-center">
                             <a href="/login" className="hidden lg:flex items-center text-brandPrimary
                             hover:text-gray900">login</a>
-                            <a href="/signup" className="bg-brandPrimary text-white py-2 px-4 transition-all duration-300
+                            <a href="/register" className="bg-brandPrimary text-white py-2 px-4 transition-all duration-300
                             rounded hover:bg-neutralDGrey">Sign Up</a>
                         </div>
                     )
@@ -86,14 +112,33 @@ const Navbar = () => {
             </div>
             {/*  mobile view */}
             <div className={`space-y-6 px-4 mt-24 py-10 bg-brandPrimary ${isOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
+           
                     {
-                        navItems.map(({link, path}) => <Link to={path} spy={true} smooth={true} offset={-100} 
+                        navItems.map(({link, path}) => <Link to={path} spy="true" smooth="true"offset={-100} 
                         className="block text-base text-white hover:text-brandPrimary first:font-medium" key={path} >{link}</Link> )
                     }
                     
             </div>
         </nav>
-
+                    {
+                       user &&(
+                        openProfile && (
+                            <div className="dropdownProfile flex flex-col">
+                                <ul className="flex flex-col gap-4">
+                                    <li>{user.fullName}</li>
+                                    <div className="flex justify-center items-center">
+                                    {/* <span className="w-full border border-black"></span> */}
+                                    {/* <span className="px-4">Or</span> */}
+                                    <span className="w-full border border-black"></span>
+                                </div>
+                                    <li>Booking</li>
+                                    <li>Setting</li>
+                                    <li onClick={handleClick}>Log Out</li>
+                                </ul>
+                            </div>
+                        )
+                       ) 
+                    }
     </header>
     )
 }

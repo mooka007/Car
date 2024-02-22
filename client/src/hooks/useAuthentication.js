@@ -21,6 +21,8 @@ export const useLogin = () => {
             body: JSON.stringify({ email, password})
         })
         const json = await res.json()
+        console.log(json)
+        
         if(!res.ok){
             setIsLoading(false)
             setError(json.error) 
@@ -28,11 +30,11 @@ export const useLogin = () => {
 
         if(res.ok){
             // save the user to local storage
-            localStorage.setItem('user', JSON.stringify(res))
+            localStorage.setItem('user', JSON.stringify(json))
 
             // update the auth context
-            dispatch({type: 'LOGIN', payload: res})
-
+            dispatch({type: 'LOGIN', payload: json})
+            window.location.assign('/');
             // update loading state
             setIsLoading(false)
         }
@@ -72,4 +74,19 @@ export const useRegister = () => {
         }
     }
     return {  register, isLoading, error }
+}
+
+
+export const useLogout = () => {
+    const { dispatch } = useAuthContext()
+
+    const logout = () => {
+        // remove user from storage
+        localStorage.removeItem('user')
+
+        // dispatch logout action
+        dispatch({ type: 'LOGOUT'})
+// 12
+    }
+    return { logout }
 }

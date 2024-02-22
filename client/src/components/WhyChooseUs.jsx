@@ -16,14 +16,14 @@ const WhyChooseUs = () => {
                   <div className="py-3 sm:py-4 transition duration-300 hover:scale-105">
                     <img
                       src={car1}
-                      alt=""
+                      alt="car "
                       className="w-full rounded-2xl"
                     />
                   </div>
                   <div className="py-3 sm:py-4 transition duration-300 hover:scale-105">
                     <img
                       src={car2}
-                      alt=""
+                      alt="car "
                       className="w-full rounded-2xl"
                     />
                   </div>
