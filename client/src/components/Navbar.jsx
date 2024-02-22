@@ -112,12 +112,10 @@ const Navbar = () => {
             </div>
             {/*  mobile view */}
             <div className={`space-y-6 px-4 mt-24 py-10 bg-brandPrimary ${isOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
-           
                     {
                         navItems.map(({link, path}) => <Link to={path} spy="true" smooth="true"offset={-100} 
                         className="block text-base text-white hover:text-brandPrimary first:font-medium" key={path} >{link}</Link> )
                     }
-                    
             </div>
         </nav>
                     {
