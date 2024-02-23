@@ -47,8 +47,8 @@ const Navbar = () => {
     ];
     const navItemsNoUser = [
         {link: "Home", path: "/"},
-        {link: "Service", path : "/service"},
-        {link: "About Us", path : "#"},
+        {link: "Service", path : "/"},
+        {link: "About Us", path : "/aboutus"},
         // {link: "Contactus", path : "/contactus"},
         // {link: "About Us", path : "/aboutus"},       
     ];

@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post("/create", upload, requireAuth, createPost)
 
-router.get("/", requireAuth, getCars)
+router.get("/", getCars)
 router.get('/car/:id', getCar)
 
 export default router;

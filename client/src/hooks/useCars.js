@@ -1,4 +1,4 @@
-import { PostContext  } from "../context/PostContext";
+import { PostContext  } from "../context/CarsContext";
 import { useContext  } from "react";
 
 export const usePostsContext = () => {

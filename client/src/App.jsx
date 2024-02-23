@@ -17,6 +17,7 @@ import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
 import Gallery from './pages/Gallery.jsx';
 import { ValidateEmail } from './pages/ValidateEmail.jsx';
+import AboutUs from './pages/AboutUs.jsx';
 // import { useAuthContext } from './hooks/useAuthContext';
 
 const Layout  = () => {
@@ -41,6 +42,7 @@ const router = createBrowserRouter(
       <Route path="/contactus" element={<Contactus />}></Route>
       <Route path="/gallery" element={<Gallery />}></Route>
       <Route path="/validate_email" element={<ValidateEmail />}></Route>
+      <Route path="/aboutus" element={<AboutUs />}></Route>
     </Route>
     <Route path="/login" element={<Login />}></Route>
     <Route path="/register" element={<Signup />}></Route>
