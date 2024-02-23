@@ -18,6 +18,7 @@ import Signup from './pages/Signup.jsx';
 import Gallery from './pages/Gallery.jsx';
 import { ValidateEmail } from './pages/ValidateEmail.jsx';
 import AboutUs from './pages/AboutUs.jsx';
+import 'react-multi-carousel/lib/styles.css'
 // import { useAuthContext } from './hooks/useAuthContext';
 
 const Layout  = () => {

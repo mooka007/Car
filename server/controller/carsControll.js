@@ -50,7 +50,7 @@ export const createPost = async (req, res) => {
         const path = file.path.split("\\");
         // console.log(path)
         const imgPath = "/" + path[1] + "/" + path[2];
-        // console.log(imgPath)
+        console.log(imgPath)
         img.push(imgPath);
     }
     // console.log("image", img);

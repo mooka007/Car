@@ -1,12 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { Dropdown } from 'flowbite-react';
 import { usePostsContext } from '../hooks/useCars';
-import { useAuthContext } from '../hooks/useAuthContext';
+// import { useAuthContext } from '../hooks/useAuthContext';
 import Cards from './Cards'
+import Carousel from 'react-multi-carousel';
 
 const Offers = () => {
   const { posts, dispatch } = usePostsContext();
   const [uniqueModelNames, setUniqueModelNames] = useState([]);
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
 
   // const { user } = useAuthContext();
 
@@ -23,10 +43,7 @@ const Offers = () => {
         setUniqueModelNames(Array.from(uniqueNamesSet));
       }
     }
-    // if (user ) {
       fetchPosts()
-    // }
-    // fetchPosts()
   }, [dispatch, posts])
 
 
@@ -43,12 +60,14 @@ const Offers = () => {
         </div>
 
         <div className="lg:mx-40 mt-10">
-          <Cards />
+        <Carousel responsive={responsive} className='mx-10 ' >
+        {
+          posts.map((car, _id) => (
+              <Cards key={_id}  car={car}/>
+        ))}
+        </Carousel>
         </div>
     </div>
-    
-
-
     </>
   );
 }
