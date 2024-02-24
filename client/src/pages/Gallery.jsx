@@ -8,20 +8,29 @@ import {
     TEDropdownMenu,
     TEDropdownItem,
     TERipple,
-  } from "tw-elements-react";
+} from "tw-elements-react";
 import { Post } from "../components/Posts";
 
 const Gallery = () => {
-    const { posts, dispatch } = usePostsContext();
     const { fetchPosts} = usePosting();
+    const { posts, dispatch } = usePostsContext();
+    const [uniqueModelNames, setUniqueModelNames] = useState([]);
+    const [selectedName, setSelectedName] = useState(null);
+
     useEffect(()=>{
         fetchPosts();
     },[dispatch, posts])
-    // const [isOpen, setIsOpen] = useState(false);
 
-    // const toggleDropdown = () => {
-    //   setIsOpen(!isOpen);
-    // };
+    useEffect(() => {
+        const uniqueNames = [...new Set(posts.map((car) => car.name))];
+        setUniqueModelNames(uniqueNames);
+    }, [posts]);
+
+    const handleNameClick = (name) => {
+    setSelectedName(name);
+    };
+
+    const filteredPosts = selectedName ? posts.filter((car) => car.name === selectedName) : posts;
     return (
         <div className='text-center my-60  '>
             <section className="bg-white dark:bg-gray-900">
@@ -29,18 +38,16 @@ const Gallery = () => {
                     <div className="lg:flex lg:-mx-2">
                         <div className="text-start space-x-3 space-y-3 lg:w-1/5 lg:px-2 lg:space-y-4">
                             <a href="#" className="block font-medium text-gray-500 dark:text-gray-300 hover:underline"></a>
-                            <a href="#" className="block font-medium text-gray-500 dark:text-gray-300 hover:underline">Kia</a>
-                            <a href="#" className="block font-medium text-gray-500 dark:text-gray-300 hover:underline">Audi</a>
-                            <a href="#" className="block font-medium text-gray-500 dark:text-gray-300 hover:underline">BMW</a>
-                            <a href="#" className="block font-medium text-gray-500 dark:text-gray-300 hover:underline">Lexus</a>
-                            <a href="#" className="block font-medium text-gray-500 dark:text-gray-300 hover:underline">Toyota</a>
-                            <a href="#" className="block font-medium text-gray-500 dark:text-gray-300 hover:underline">Hyundai</a>
-                            <a href="#" className="block font-medium text-gray-500 dark:text-gray-300 hover:underline">Mercedes</a>
-                            <a href="#" className="block font-medium text-gray-500 dark:text-gray-300 hover:underline">Volkswagen</a>
+                            {
+                                uniqueModelNames.map((name, _id) => (
+                                    <a key={_id}
+                                    onClick={() => handleNameClick(name)}
+                                    className={`block font-medium text-gray-500 dark:text-gray-300 hover:underline ${selectedName === name ? "text-blue-500" : ""}`}>{name}</a>
+                            ))}
                         </div>
                         <div className="mt-6 lg:mt-0 lg:px-2 lg:w-4/5 ">
                             <div className="flex items-center justify-between text-sm tracking-widest uppercase ">
-                                <p className="text-gray-500 dark:text-gray-300">6 Items</p>
+                                <p className="text-gray-500 dark:text-gray-300">{filteredPosts.length} Items</p>
                                 <div className="flex items-center">
                                     <p className="text-gray-500 dark:text-gray-300 mr-4"></p>
                                     <TEDropdown className="flex justify-center">
@@ -65,12 +72,12 @@ const Gallery = () => {
                                     </TEDropdown>
                                 </div>
                             </div>
-                           <div className="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                           {
-                                posts.map((car, _id) => (
-                                    <Post key={_id}  car={car}/>
-                            ))}
-                           </div>
+                            <div className="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                            {
+                                    filteredPosts.map((car, _id) => (
+                                        <Post key={_id}  car={car}/>
+                                ))}
+                            </div>
                             
                         </div>
                     </div>
