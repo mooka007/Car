@@ -10,11 +10,6 @@ export const useLogin = () => {
     const login = async(email, password) => {
         setIsLoading(true)
         setError(null)
-
-        // const json = await axios.post("/api/auth/signin", 
-        //     { email, password }, 
-        //     { headers: { "Content-Type": "application/json" } }
-        // );
         const res = await fetch('http://localhost:3001/auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
