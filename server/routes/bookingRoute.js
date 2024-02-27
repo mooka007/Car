@@ -6,7 +6,7 @@ import requireAuth from "../middleware/require.js"
 const router = express.Router();
 router.use(requireAuth)
 // Create a new booking
-router.post('/booking', createBooking);
+router.post('/gallery', createBooking);
 
 // Get all bookings
 // router.get('/bookings', bookingController.getAllBookings);

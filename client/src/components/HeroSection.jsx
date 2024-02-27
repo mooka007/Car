@@ -1,7 +1,6 @@
 import React from "react";
 import picture from "../assets/picture.jpg";
 
-
 const HeroSection = () => {
 
     return(
@@ -42,8 +41,8 @@ const HeroSection = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="my-6 mx-auto h-10 w-10 animate-bounce rounded-full bg-white p-2 lg:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                             <path strokeLinejoin="round"  d="M16 17l-4 4m0 0l-4-4m4 4V3"></path>
                         </svg>
-                        <div className="abg-orange-400 mx-auto w-fit overflow-hidden rounded-[6rem] rounded-br-none rounded-tl-none">
-                            <img src={picture} />
+                        <div className="abg-orange-400 mx-auto w-fit overflow-hidden rounded-[6rem] rounded-br-none rounded-tl-none hvr-bounce-out">
+                            <img  src={picture} />
                         </div>
                     </div>
                 </div>

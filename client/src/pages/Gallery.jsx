@@ -19,12 +19,13 @@ const Gallery = () => {
 
     useEffect(()=>{
         fetchPosts();
-    },[dispatch, posts])
-
-    useEffect(() => {
         const uniqueNames = [...new Set(posts.map((car) => car.name))];
         setUniqueModelNames(uniqueNames);
-    }, [posts]);
+    },[dispatch, posts])
+
+    // useEffect(() => {
+        
+    // }, [posts]);
 
     const handleNameClick = (name) => {
     setSelectedName(name);
