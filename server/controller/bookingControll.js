@@ -13,9 +13,9 @@ export const createBooking = async (req, res) => {
         if (!car) throw Error('Please Select A car')
 
         // Check if the car is already booked
-        if (!car.availability) {
-            throw new Error('The selected car is not available');
-        }
+        // if (!car.availability) {
+        //     throw new Error('The selected car is not available');
+        // }
 
         // Update the availability status of the car
         car.availability = false;

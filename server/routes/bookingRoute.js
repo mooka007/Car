@@ -4,9 +4,9 @@ import { createBooking } from "../controller/bookingControll.js"
 import requireAuth from "../middleware/require.js"
 
 const router = express.Router();
-router.use(requireAuth)
+// router.use(requireAuth)
 // Create a new booking
-router.post('/gallery', createBooking);
+router.post('/gallery', requireAuth, createBooking);
 
 // Get all bookings
 // router.get('/bookings', bookingController.getAllBookings);

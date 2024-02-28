@@ -7,11 +7,11 @@ export const BookContext = createContext()
 export const booksReducer = (state, action) => {
     switch (action.type) {
         case 'SET_BOOK':
-            return { posts: action.payload }
+            return { books: action.payload }
         case 'CREATE_BOOK':
-            return { posts: [action.payload, ...state.books] }
+            return { books: [action.payload, ...state.books] }
         case 'CREATE_BOOK':
-            return { posts: state.books.filter((p) => p._id !== action.payload._id) }
+            return { books: state.books.filter((p) => p._id !== action.payload._id) }
         default:
             return state
     }

@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const Datepicker = ({ title, value, onChange }) => {
-    console.log(value); // Add this line to check the selected date
+    // console.log(value); // Add this line to check the selected date
 
 return (
 <div className="mb-4">

@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import { FloatingLabel } from 'flowbite-react';
+// import { FloatingLabel } from 'flowbite-react';
 import logo from "../assets/logo.png"
 import { useLogin } from '../hooks/useAuthentication.js'
 

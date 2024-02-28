@@ -17,6 +17,7 @@ const Navbar = () => {
 
     const handleClick = () => {
         logout()
+        window.location.assign('/login');
     }
 
     // set toggle menu
