@@ -114,41 +114,55 @@ export const Post = ({ car, _id }) => {
     const [selectedCar, setSelectedCar] = useState('');
 
     const handleStartDateChange = (date) => {
+        // console.log('Selected Date:', date)
         setStartDate(date);
+    };
+    const handleEndDateChange = (date) => {
+        setEndDate(date);
     };
 
     const handleselectedCar = () => {
         setSelectedCar(car.name);
     };
 
-    const handleEndDateChange = (date) => {
-        setEndDate(date);
+    const calculateTotalCost = () => {
+        const pricePerDay = 75;
+        const days = differenceInDays(endDate, startDate) + 1;
+        return days * pricePerDay;
     };
 
     const handleSubmit = async () => {      
         setSelectedCar(car.name);
-        console.log(selectedCar)
+        // console.log(selectedCar)
 
         // Perform the submission logic with the total cost
-        const pricePerDay = 10;
-        const days = differenceInDays(endDate, startDate) + 1;
-        const calculatedTotalCost = days * pricePerDay;
+        const calculatedTotalCost = calculateTotalCost();
+        setTotalCost(calculatedTotalCost);
         setTotalCost(calculatedTotalCost);
 
         await  book(selectedCar, startDate, endDate )
         console.log("Submitting Total Cost:", calculatedTotalCost);
+
         // Close the modal after submission
         setOpenModal(false);
     };
 
     useEffect(() => {
         if (!startDate || !endDate) {
-            throw Error("Please select the start date and end date");
+            throw Error('Please select the start date and end date');
         }
-    }, [totalCost]);
+    
+        // Update the total cost whenever start or end date changes
+        const calculatedTotalCost = calculateTotalCost();
+        setTotalCost(calculatedTotalCost);
+    }, [startDate, endDate]);
 
+    const imageSize = {
+        width: '100%',
+        height: 'auto',
+    };
     return (
-        <div >
+        <>
             <div key={_id}  className="flex flex-col items-center justify-center w-full max-w-lg mx-auto">
                 <img className="object-cover w-full rounded-md h-72 xl:h-80" src={car.image} alt={car.name} />
                 <h4 className="mt-2 text-lg font-medium text-gray-700 dark:text-gray-200">{car.name}</h4>
@@ -168,23 +182,30 @@ export const Post = ({ car, _id }) => {
                     </a>                
                 </motion.button>
             </div>
-            
+            {/* Modal for booking */}
             <Modal className="mt-16" show={openModal} onClose={() => setOpenModal(false)}>
                 <Modal.Body>
-                    <div className="space-y-6">
-                        <img src={car.image} alt={car.name} />
-                        <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                            {car.description} 
-                        </p>
+                    <div className=" mx-auto">
+                        <div className="flex flex-wrap -mx-4">
+                            <div className="w-full md:w-1/2 px-4">
+                                <div>
+                                    <img src={car.image} alt={car.name} style={imageSize} />
+                                </div>
+                            </div>
+                            <div className="w-full md:w-1/2 px-4">
+                                <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400 mt-6">
+                                    {car.description} 
+                                </p>
+                                <div className="mt-10">
+                                    <Datepicker title="Start Date" onChange={handleStartDateChange} selected={startDate} value={startDate} />
+                                    <Datepicker title="End Date" onChange={handleEndDateChange} selected={endDate} value={endDate} />
+                                    <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                                        Total Cost: ${totalCost}
+                                    </p>
+                                </div>
 
-                        <div>
-                            <Datepicker title="Start Date" onChange={handleStartDateChange} selected={startDate} />
-                            <Datepicker title="End Date" onChange={handleEndDateChange} selected={endDate} />
+                            </div>
                         </div>
-
-                        <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                            Total Cost: {totalCost}
-                        </p>
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
@@ -195,7 +216,7 @@ export const Post = ({ car, _id }) => {
                 </Modal.Footer>
             </Modal>
             
-        </div>
+        </>
     )
 }
 
