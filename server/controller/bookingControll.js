@@ -1,5 +1,6 @@
 import Booking from "../models/Bookings.js";
 import Car from "../models/Cars.js"
+import jwt from 'jsonwebtoken';
 
 // import mongoose from "mongoose";
 
@@ -34,16 +35,39 @@ export const createBooking = async (req, res) => {
     }
 };
 
-// Get all bookings
+
+// Get all bookings for authenticated user
 export const getAllBookings = async (req, res) => {
     try {
-        const bookings = await Booking.find().populate('user car');
-        res.json(bookings);
-        console.log(bookings)
-    } catch (error) {
-        res.status(500).json({ error: 'Failed to retrieve bookings' });
-    }
+        const token = req.headers.authorization.split(' ')[1];
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET); 
+        // Fetch bookings for the authenticated user
+        const books = await Booking.find({ user_id: decodedToken }).sort({ createdAt: -1 })
+            .populate("user_id")
+            .populate("car", "_id name model");
+        // console.log(books)
+        res.status(200).json(books);
+        } catch (error) {
+        console.error('Error fetching bookings:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+        }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Get a specific booking by ID
 // exports.getBookingById = async (req, res) => {

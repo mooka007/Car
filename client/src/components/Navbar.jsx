@@ -130,7 +130,7 @@ const Navbar = () => {
                                         {/* <span className="px-4">Or</span> */}
                                         <span className="w-full border border-black"></span>
                                     </div>
-                                        <li><Link to='/books/booking'>Booking</Link></li>
+                                        <li><Link to='/booking'>Booking</Link></li>
                                         <li>Setting</li>
                                         <li onClick={handleClick}>Log Out</li>
                                     </ul>

@@ -1,7 +1,7 @@
 import { BookContext  } from "../context/BookingContext";
 import { useContext  } from "react";
 
-export const useBooking = () => {
+export const useBookingContext = () => {
     const context = useContext(BookContext)
 
     if(!context){

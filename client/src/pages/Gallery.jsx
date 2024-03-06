@@ -13,7 +13,6 @@ import { Post } from "../components/Posts";
 const Gallery = () => {
     const { posts, dispatch } = usePostsContext();
     const [uniqueModelNames, setUniqueModelNames] = useState([]);
-    const [ all, setAll ] = useState()
     const [selectedName, setSelectedName] = useState(null);
 
     useEffect(() => {
@@ -24,7 +23,6 @@ const Gallery = () => {
                 'Content-Type': 'application/json'
                 }
             });
-        
             if (!response.ok) {
                 // Handle non-OK response
                 throw new Error('Response not OK');
@@ -34,11 +32,8 @@ const Gallery = () => {
             dispatch({ type: 'SET_POSTS', payload: json });
             const uniqueNamesSet = new Set(json.map(post => post.name));
             setUniqueModelNames(Array.from(uniqueNamesSet));
-            const allNames = new Set(json.map(post => post.name));
-            setAll(Array.from(allNames));
             } catch (error) {
             console.error('Error occurred during fetch:', error);
-            // window.location.assign('/404');
             }
         };
         

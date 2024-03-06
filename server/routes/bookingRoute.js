@@ -9,7 +9,7 @@ const router = express.Router();
 router.post('/gallery', requireAuth, createBooking);
 
 // Get all bookings
-router.get('/booking', getAllBookings);
+router.get('/',requireAuth,  getAllBookings);
 
 // Get a specific booking by ID
 // router.get('/bookings/:id', bookingController.getBookingById);

@@ -49,7 +49,7 @@ const router = createBrowserRouter(
       <Route path="/validate_email" element={<ValidateEmail />}></Route>
       <Route path="/aboutus" element={<AboutUs />}></Route>
       <Route path="/404" element={<ErrorPage />}></Route>
-      <Route path="/books/booking" element={<Booking />}></Route>
+      <Route path="/booking" element={<Booking />}></Route>
     </Route>
     <Route path="/login" element={<Login />}></Route>
     <Route path="/register" element={<Signup />}></Route>
