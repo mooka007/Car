@@ -141,11 +141,11 @@ export const Post = ({ car, _id }) => {
         setOpenModal(false);
     };
 
-    // useEffect(() => {
-    //     if (!startDate || !endDate) {
-    //         throw Error("Please select the start date and end date");
-    //     }
-    // }, [startDate, endDate]);
+    useEffect(() => {
+        if (!startDate || !endDate) {
+            throw Error("Please select the start date and end date");
+        }
+    }, [totalCost]);
 
     return (
         <div >
@@ -167,33 +167,36 @@ export const Post = ({ car, _id }) => {
                         }}>Book
                     </a>                
                 </motion.button>
-
-                <Modal className="mt-16" show={openModal} onClose={() => setOpenModal(false)}>
-                    <Modal.Body>
-                        <div className="space-y-6">
-                            <img src={car.image} alt={car.name} />
-                            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                {car.description} 
-                            </p>
-
-                            <div>
-                                <Datepicker title="Start Date" onChange={handleStartDateChange} selected={startDate} />
-                                <Datepicker title="End Date" onChange={handleEndDateChange} selected={endDate} />
-                            </div>
-
-                            <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                                Total Cost: {totalCost}
-                            </p>
-                        </div>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button onClick={handleSubmit}>Submit</Button>
-                        <Button color="gray" onClick={() => setOpenModal(false)}>
-                            Cancel
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
             </div>
+            
+            <Modal className="mt-16" show={openModal} onClose={() => setOpenModal(false)}>
+                <Modal.Body>
+                    <div className="space-y-6">
+                        <img src={car.image} alt={car.name} />
+                        <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                            {car.description} 
+                        </p>
+
+                        <div>
+                            <Datepicker title="Start Date" onChange={handleStartDateChange} selected={startDate} />
+                            <Datepicker title="End Date" onChange={handleEndDateChange} selected={endDate} />
+                        </div>
+
+                        <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                            Total Cost: {totalCost}
+                        </p>
+                    </div>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button onClick={handleSubmit}>Submit</Button>
+                    <Button color="gray" onClick={() => setOpenModal(false)}>
+                        Cancel
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            
         </div>
     )
 }
+
+

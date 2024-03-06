@@ -20,6 +20,9 @@ import { ValidateEmail } from './pages/ValidateEmail.jsx';
 import AboutUs from './pages/AboutUs.jsx';
 import 'react-multi-carousel/lib/styles.css'
 import ErrorPage from './pages/ErrorPage.jsx';
+import Booking from './pages/BookingList.jsx';
+
+
 // import { useAuthContext } from './hooks/useAuthContext';
 
 const Layout  = () => {
@@ -46,6 +49,7 @@ const router = createBrowserRouter(
       <Route path="/validate_email" element={<ValidateEmail />}></Route>
       <Route path="/aboutus" element={<AboutUs />}></Route>
       <Route path="/404" element={<ErrorPage />}></Route>
+      <Route path="/books/booking" element={<Booking />}></Route>
     </Route>
     <Route path="/login" element={<Login />}></Route>
     <Route path="/register" element={<Signup />}></Route>

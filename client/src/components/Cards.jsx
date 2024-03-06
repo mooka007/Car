@@ -15,19 +15,24 @@ import { useAuthContext } from '../hooks/useAuthContext'
       // Add to cart logic
       navigate('/login');  };
 }
+const cardStyle = {
+    // height: '50%',
+};
+
   return (
         <Card
-        // style={{ width: '889px', height: '567px' }}
+        style={cardStyle}
           key={_id}
           className="max-w-sm my-20 hover:bg-gray-200  rounded overflow-hidden hover:-translate-y-4 focus:outline-none   transition duration-200 ease-in-out"
           imgAlt="car"
           imgSrc={car.image}
         >
           <a href="#">
-            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+          {/* <img src={car.image} alt={car.name} style={imageSize} /> */}
+          </a>
+            <h5 className="text-xl font-semibold  tracking-tight text-gray-900 dark:text-white">
               {car.name}
             </h5>
-          </a>
           {/* najmat */}
           <div className="mb-5 mt-2.5 flex items-center">
             <svg
@@ -76,7 +81,7 @@ import { useAuthContext } from '../hooks/useAuthContext'
           </div>
           {/*  price  + add to cart  */}
           <div className="flex items-center justify-between">
-            <span className="text-3xl font-bold text-gray-900 dark:text-white">{car.model}</span>
+            <span className="text-xl font-bold mt-n10 text-gray-900 dark:text-white">{car.model}</span>
             <a
               onClick={handleAddToCart}
               href=""

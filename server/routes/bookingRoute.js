@@ -1,6 +1,6 @@
 
 import express from "express";
-import { createBooking } from "../controller/bookingControll.js"
+import { createBooking, getAllBookings } from "../controller/bookingControll.js"
 import requireAuth from "../middleware/require.js"
 
 const router = express.Router();
@@ -9,7 +9,7 @@ const router = express.Router();
 router.post('/gallery', requireAuth, createBooking);
 
 // Get all bookings
-// router.get('/bookings', bookingController.getAllBookings);
+router.get('/booking', getAllBookings);
 
 // Get a specific booking by ID
 // router.get('/bookings/:id', bookingController.getBookingById);

@@ -35,14 +35,15 @@ export const createBooking = async (req, res) => {
 };
 
 // Get all bookings
-// exports.getAllBookings = async (req, res) => {
-//     try {
-//         const bookings = await Booking.find().populate('user car');
-//         res.json(bookings);
-//     } catch (error) {
-//         res.status(500).json({ error: 'Failed to retrieve bookings' });
-//     }
-// };
+export const getAllBookings = async (req, res) => {
+    try {
+        const bookings = await Booking.find().populate('user car');
+        res.json(bookings);
+        console.log(bookings)
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to retrieve bookings' });
+    }
+};
 
 // Get a specific booking by ID
 // exports.getBookingById = async (req, res) => {

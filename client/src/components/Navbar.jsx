@@ -47,9 +47,9 @@ const Navbar = () => {
         // {link: "About Us", path : "/aboutus"},       
     ];
     const navItemsNoUser = [
-        {link: "Home", path: "/"},
-        {link: "Service", path : "/"},
-        {link: "About Us", path : "/aboutus"},
+        {link: "Home", pathj: "/"},
+        {link: "Service", pathj : "/"},
+        {link: "About Us", pathj : "/aboutus"},
         // {link: "Contactus", path : "/contactus"},
         // {link: "About Us", path : "/aboutus"},       
     ];
@@ -74,8 +74,8 @@ const Navbar = () => {
                     ): (
                         <ul className="md:flex space-x-12 hidden">
                         {
-                            navItemsNoUser.map(({link, path}) => <Link to={path}  offset={-100} 
-                            className="block text-base text-gray900 hover:text-brandPrimary first:font-medium" key={path} >{link}</Link> )
+                            navItemsNoUser.map(({link, pathj}) => <Link to={pathj}  offset={-100} 
+                            className="block text-base text-gray900 hover:text-brandPrimary first:font-medium" key={pathj} >{link}</Link> )
                         }
                         </ul> 
                     )
@@ -120,23 +120,23 @@ const Navbar = () => {
             </div>
         </nav>
                     {
-                       user &&(
-                        openProfile && (
-                            <div className="dropdownProfile flex flex-col">
-                                <ul className="flex flex-col gap-4">
-                                    <li>{user.fullName}</li>
-                                    <div className="flex justify-center items-center">
-                                    {/* <span className="w-full border border-black"></span> */}
-                                    {/* <span className="px-4">Or</span> */}
-                                    <span className="w-full border border-black"></span>
+                        user &&(
+                            openProfile && (
+                                <div className="dropdownProfile flex flex-col">
+                                    <ul className="flex flex-col gap-4">
+                                        <li>{user.fullName}</li>
+                                        <div className="flex justify-center items-center">
+                                        {/* <span className="w-full border border-black"></span> */}
+                                        {/* <span className="px-4">Or</span> */}
+                                        <span className="w-full border border-black"></span>
+                                    </div>
+                                        <li><Link to='/books/booking'>Booking</Link></li>
+                                        <li>Setting</li>
+                                        <li onClick={handleClick}>Log Out</li>
+                                    </ul>
                                 </div>
-                                    <li>Booking</li>
-                                    <li>Setting</li>
-                                    <li onClick={handleClick}>Log Out</li>
-                                </ul>
-                            </div>
-                        )
-                       ) 
+                            )
+                        ) 
                     }
     </header>
     )
