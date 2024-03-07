@@ -51,7 +51,7 @@ export default function main(path, user){
 
 
     let info ={
-        from : 'RentX',
+        from : "RentX <mooka3084@gmail.com>",
         to : user.email,
         subject: subject,
         html: html

@@ -5,6 +5,8 @@ import { motion } from "framer-motion"
 import { differenceInDays } from 'date-fns';
 import { useBook } from "../hooks/useBookingHooks";
 
+import { toast } from "react-toastify";
+
 export const Post = ({ car, _id }) => {
     const { book, isLoading, error } = useBook();
     const today = new Date();
@@ -43,6 +45,7 @@ export const Post = ({ car, _id }) => {
 
         // Close the modal after submission
         setOpenModal(false);
+        toast.success('Book added Successfully, we will call you asap')
     };
 
     useEffect(() => {

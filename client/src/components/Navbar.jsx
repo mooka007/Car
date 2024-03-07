@@ -131,7 +131,7 @@ const Navbar = () => {
                                         <span className="w-full border border-black"></span>
                                     </div>
                                         <li><Link to='/booking'>Booking</Link></li>
-                                        <li>Setting</li>
+                                        {/* <li>Setting</li> */}
                                         <li onClick={handleClick}>Log Out</li>
                                     </ul>
                                 </div>
